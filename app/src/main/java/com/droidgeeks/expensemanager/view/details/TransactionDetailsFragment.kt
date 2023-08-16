@@ -24,10 +24,10 @@ import com.droidgeeks.expensemanager.data.local.model.Transaction
 import com.droidgeeks.expensemanager.databinding.FragmentTransactionDetailsBinding
 import com.droidgeeks.expensemanager.utils.cleanTextContent
 import com.droidgeeks.expensemanager.utils.hide
-import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 import com.droidgeeks.expensemanager.utils.saveBitmap
 import com.droidgeeks.expensemanager.utils.show
 import com.droidgeeks.expensemanager.utils.snack
+import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 import com.droidgeeks.expensemanager.utils.viewState.DetailState
 import com.droidgeeks.expensemanager.view.base.BaseFragment
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
@@ -94,13 +94,13 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
     }
 
     private fun onDetailsLoaded(transaction: Transaction) = with(binding.transactionDetails) {
-        title.text = transaction.title
-        amount.text = usdCurrencyConvertor(transaction.amount).cleanTextContent
-        type.text = transaction.transactionType
+        title.setText(transaction.title)
+        amount.setText(usdCurrencyConvertor(transaction.amount).cleanTextContent)
+        type.setText(transaction.transactionType)
         tag.text = transaction.tag
-        date.text = transaction.date
-        note.text = transaction.note
-        createdAt.text = transaction.createdAtDateFormat
+        note.setText(transaction.note)
+        createdAt.setText(transaction.createdAtDateFormat)
+        tagIcon.setImageResource(transaction.tagIcon)
 
         binding.editTransaction.setOnClickListener {
             val bundle = Bundle().apply {
@@ -182,7 +182,6 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
             transactionDetails.amount.text.toString(),
             transactionDetails.type.text.toString(),
             transactionDetails.tag.text.toString(),
-            transactionDetails.date.text.toString(),
             transactionDetails.note.text.toString(),
             transactionDetails.createdAt.text.toString()
         )

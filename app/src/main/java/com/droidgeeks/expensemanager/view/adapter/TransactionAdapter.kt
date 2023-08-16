@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.droidgeeks.expensemanager.R
-import com.droidgeeks.expensemanager.databinding.ItemTransactionLayoutBinding
 import com.droidgeeks.expensemanager.data.local.model.Transaction
+import com.droidgeeks.expensemanager.databinding.ItemTransactionLayoutBinding
 import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 
 class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH>() {
@@ -45,6 +45,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH
 
             transactionName.text = item.title
             transactionCategory.text = item.tag
+            transactionDate.text = item.date
 
             when (item.transactionType) {
                 "Income" -> {
@@ -57,6 +58,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH
 
                     transactionAmount.text = "+ ".plus(usdCurrencyConvertor(item.amount))
                 }
+
                 "Expense" -> {
                     transactionAmount.setTextColor(
                         ContextCompat.getColor(
@@ -67,42 +69,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH
                     transactionAmount.text = "- ".plus(usdCurrencyConvertor(item.amount))
                 }
             }
-
-            when (item.tag) {
-                "Housing" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_food)
-                }
-                "Transportation" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_transport)
-                }
-                "Food" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_food)
-                }
-                "Utilities" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_utilities)
-                }
-                "Insurance" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_insurance)
-                }
-                "Healthcare" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_healthcare)
-                }
-                "Saving & Debts" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_savings)
-                }
-                "Personal Spending" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_personal_spending)
-                }
-                "Entertainment" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_entertainment)
-                }
-                "Miscellaneous" -> {
-                    transactionIconView.setImageResource(R.drawable.ic_others)
-                }
-                else -> {
-                    transactionIconView.setImageResource(R.drawable.ic_others)
-                }
-            }
+            transactionIconView.setImageResource(item.tagIcon)
 
             // on item click
             holder.itemView.setOnClickListener {

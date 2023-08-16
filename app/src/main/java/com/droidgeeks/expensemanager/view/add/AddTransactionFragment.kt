@@ -151,7 +151,7 @@ class AddTransactionFragment :
         val date = it.etWhen.text.toString()
         val note = it.etNote.text.toString()
 
-        return Transaction(title, amount, transactionType, tag, date, note)
+        return Transaction(title, amount, transactionType, tag, date, note, tagIcon = selectedModel?.icon ?: R.drawable.ic_others)
     }
 
     override fun getViewBinding(

@@ -27,9 +27,9 @@ import com.droidgeeks.expensemanager.services.exportcsv.CreateCsvContract
 import com.droidgeeks.expensemanager.services.exportcsv.OpenCsvContract
 import com.droidgeeks.expensemanager.utils.action
 import com.droidgeeks.expensemanager.utils.hide
-import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 import com.droidgeeks.expensemanager.utils.show
 import com.droidgeeks.expensemanager.utils.snack
+import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 import com.droidgeeks.expensemanager.utils.viewState.ExportState
 import com.droidgeeks.expensemanager.utils.viewState.ViewState
 import com.droidgeeks.expensemanager.view.adapter.TransactionAdapter
@@ -141,7 +141,8 @@ class DashboardFragment :
                     transaction.date,
                     transaction.note,
                     transaction.createdAt,
-                    transaction.id
+                    transaction.id,
+                    transaction.tagIcon
                 )
                 viewModel.deleteTransaction(transactionItem)
                 Snackbar.make(

@@ -27,6 +27,8 @@ data class Transaction(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0,
+    @ColumnInfo(name = "tagIcon")
+    var tagIcon: Int,
 ) : Serializable {
     val createdAtDateFormat: String
         get() = DateFormat.getDateTimeInstance()

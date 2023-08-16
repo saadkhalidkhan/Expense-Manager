@@ -7,28 +7,34 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import com.droidgeeks.expensemanager.R
 import com.droidgeeks.expensemanager.data.local.model.Transaction
 import com.droidgeeks.expensemanager.data.local.model.TransactionListModel
 import com.droidgeeks.expensemanager.databinding.FragmentEditTransactionBinding
+import com.droidgeeks.expensemanager.utils.Constants
 import com.droidgeeks.expensemanager.utils.parseDouble
 import com.droidgeeks.expensemanager.utils.snack
 import com.droidgeeks.expensemanager.utils.transformIntoDatePicker
+import com.droidgeeks.expensemanager.view.adapter.TransactionCategoryItemAdapter
 import com.droidgeeks.expensemanager.view.base.BaseFragment
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
+import java.util.Date
 
 @AndroidEntryPoint
 class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, TransactionViewModel>() {
+
     private val args: EditTransactionFragmentArgs by navArgs()
     override val viewModel: TransactionViewModel by activityViewModels()
+    private lateinit var transactionAdapter: TransactionCategoryItemAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // receiving bundles here
         val transaction = args.transaction
         initViews()
+        setupRV()
         loadData(transaction)
     }
 
@@ -39,16 +45,46 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
 //        addTransactionLayout.etTag.setText(transaction.tag, false)
         addTransactionLayout.etWhen.setText(transaction.date)
         addTransactionLayout.etNote.setText(transaction.note)
+
+        setTitle(transaction)
+
+        selectedCategory = transaction.tag
+        selectedCategoryIcon = transaction.tagIcon
+
+        Constants.transactionTags.find {
+            getString(it.name).equals(
+                transaction.tag,
+                ignoreCase = true
+            )
+        }?.isSelected = true
+        transactionAdapter.notifyDataSetChanged()
     }
 
-    private var selectedModel: TransactionListModel? = null
+    private fun setTitle(transaction: Transaction) {
+        if (transaction.transactionType.equals(
+                requireContext().getString(R.string.income),
+                ignoreCase = true
+            )
+        ) {
+            selectedExpenseText = requireContext().getString(R.string.income)
+            updateBackground(
+                R.drawable.bg_select_left,
+                R.drawable.bg_non_select_right
+            )
+        } else {
+            selectedExpenseText = requireContext().getString(R.string.expense)
+            updateBackground(
+                R.drawable.bg_non_select_left,
+                R.drawable.bg_select_right
+            )
+        }
+    }
+
+    private var selectedCategory: String? = ""
+    private var selectedCategoryIcon: Int? = R.drawable.ic_others
     private var selectedExpenseText: String = ""
 
     private fun initViews() = with(binding) {
-
-        // Set list to TextInputEditText adapter
-//        addTransactionLayout.etTransactionType.setAdapter(transactionTypeAdapter)
-//        addTransactionLayout.etTag.setAdapter(tagsAdapter)
 
         // Transform TextInputEditText to DatePicker using Ext function
         addTransactionLayout.etWhen.transformIntoDatePicker(
@@ -92,7 +128,7 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
 
                     else -> {
                         viewModel.updateTransaction(getTransactionContent()).also {
-
+                            clearData()
                             binding.root.snack(
                                 string = R.string.success_expense_saved
                             ).run {
@@ -126,6 +162,26 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
         }
     }
 
+    private fun setupRV() = with(binding) {
+        transactionAdapter = TransactionCategoryItemAdapter(requireContext(), Constants.transactionTags)
+        addTransactionLayout.rvCategory.apply {
+            layoutManager = GridLayoutManager(activity, 3)
+            adapter = transactionAdapter
+        }
+
+        transactionAdapter.setOnItemClickListener { categoryModel ->
+            selectedCategory = getString(categoryModel.name)
+            selectedCategoryIcon = categoryModel.icon
+            setCategoryItem(categoryModel)
+            transactionAdapter.notifyDataSetChanged()
+        }
+    }
+
+    private fun setCategoryItem(categoryModel: TransactionListModel) {
+        Constants.transactionTags.filter { it.isSelected }.forEach { it.isSelected = false }
+        Constants.transactionTags.find { it.name == categoryModel.name }?.isSelected = true
+    }
+
     private fun updateBackground(incomeDrawable: Int, expenseDrawable: Int) {
         binding.addTransactionLayout.rbIncome.setBackgroundResource(incomeDrawable)
         binding.addTransactionLayout.rbExpense.setBackgroundResource(expenseDrawable)
@@ -137,9 +193,10 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
         val title = it.etTitle.text.toString()
         val amount = parseDouble(it.etAmount.text.toString())
         val transactionType = selectedExpenseText
-        val tag = if (selectedModel != null) requireContext().getString(selectedModel!!.name) else ""
+        val tag = if (selectedCategory != null) selectedCategory!! else ""
         val date = it.etWhen.text.toString()
         val note = it.etNote.text.toString()
+        val icon = selectedCategoryIcon
 
         return Transaction(
             title = title,
@@ -149,7 +206,8 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
             date = date,
             note = note,
             createdAt = System.currentTimeMillis(),
-            id = id
+            id = id,
+            tagIcon = icon ?: R.drawable.ic_others
         )
     }
 
@@ -157,4 +215,16 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = FragmentEditTransactionBinding.inflate(inflater, container, false)
+
+    private fun clearData() {
+        selectedExpenseText = ""
+        selectedCategory = null
+        Constants.transactionTags.forEach { it.isSelected = false }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        clearData()
+    }
+
 }

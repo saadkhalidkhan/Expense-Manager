@@ -8,14 +8,13 @@ plugins {
 
 android {
     compileSdk = 33
-    buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "com.droidgeeks.expensemanager"
         minSdk = 21
         targetSdk = 33
         versionCode = 1
-        versionName = "v1.0.0-alpha01"
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
