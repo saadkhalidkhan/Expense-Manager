@@ -15,6 +15,7 @@
     <string name="text_expense_add_transaction">Save Transaction</string>
     <string name="text_expense_rupees">$</string>
     <string name="success_expense_saved">Transaction saved successfully</string>
+    <string name="success_expense_deleted">Transaction deleted successfully</string>
     <string name="success_transaction_delete">Transaction deleted successfully!</string>
     <string name="text_title">Title</string>
     <string name="text_dashboard">Dashboard</string>
@@ -66,5 +67,9 @@
     <string name="date_must_not_be_empty">Date must not be empty</string>
     <string name="note_must_not_be_empty">Note must not be empty</string>
     <string name="select_transaction_type">Please select transaction type</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="edit_transaction">Edit Transaction</string>
+    <string name="image_share_failed">Image share failed!</string>
+    <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">You have to enable storage permission to share transaction as Image</string>
 
 </resources>

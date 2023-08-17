@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/transactionDetailsFragment"
         android:name="com.droidgeeks.expensemanager.view.details.TransactionDetailsFragment"
-        android:label="Details"
+        android:label="@string/transaction_details"
         tools:layout="@layout/fragment_transaction_details">
         <argument
             android:name="transaction"
@@ -58,7 +58,7 @@
     <fragment
         android:id="@+id/editTransactionFragment"
         android:name="com.droidgeeks.expensemanager.view.edit.EditTransactionFragment"
-        android:label="Edit Transaction"
+        android:label="@string/edit_transaction"
         tools:layout="@layout/fragment_edit_transaction">
         <argument
             android:name="transaction"

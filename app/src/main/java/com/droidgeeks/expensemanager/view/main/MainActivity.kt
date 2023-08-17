@@ -1,6 +1,7 @@
 package com.droidgeeks.expensemanager.view.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -62,6 +63,15 @@ class MainActivity : AppCompatActivity(), IToolBar {
                 AppCompatDelegate.setDefaultNightMode(mode)
             }
         }
+        viewModel.visibleBackPress.observe(this) { visible ->
+            if (visible) {
+                binding.imageBackPress.visibility = View.VISIBLE
+                binding.imageUIMode.visibility = View.INVISIBLE
+            } else {
+                binding.imageUIMode.visibility = View.VISIBLE
+                binding.imageBackPress.visibility = View.INVISIBLE
+            }
+        }
     }
 
     private fun observeNavElements(
@@ -72,10 +82,22 @@ class MainActivity : AppCompatActivity(), IToolBar {
             when (destination.id) {
 
                 R.id.dashboardFragment -> {
+                    binding.imageBackPress.visibility = View.INVISIBLE
                     binding.tvTitle.text = getString(R.string.text_dashboard)
                 }
 
+                R.id.transactionDetailsFragment -> {
+                    binding.imageBackPress.visibility = View.VISIBLE
+                    binding.tvTitle.text = getString(R.string.transaction_details)
+                }
+
+                R.id.editTransactionFragment -> {
+                    binding.imageBackPress.visibility = View.VISIBLE
+                    binding.tvTitle.text = getString(R.string.edit_transaction)
+                }
+
                 R.id.addTransactionFragment -> {
+                    binding.imageBackPress.visibility = View.VISIBLE
                     binding.tvTitle.text = getString(R.string.text_add_transaction)
                 }
 
@@ -111,6 +133,19 @@ class MainActivity : AppCompatActivity(), IToolBar {
         }
     }
 
+    override fun onClickBackPress() {
+        if (navHostFragment.navController.currentDestination?.id == R.id.addTransactionFragment
+            || navHostFragment.navController.currentDestination?.id == R.id.transactionDetailsFragment
+            || navHostFragment.navController.currentDestination?.id == R.id.editTransactionFragment
+            || navHostFragment.navController.currentDestination?.id == R.id.errorDialog
+        ) {
+            viewModel.visibleBackPress.value = false
+            navHostFragment.navController.navigateUp()
+        } else {
+            viewModel.visibleBackPress.value = false
+        }
+    }
+
     private fun setUIMode(isChecked: Boolean) {
         if (isChecked) {
             viewModel.setDarkMode(true)
@@ -118,6 +153,14 @@ class MainActivity : AppCompatActivity(), IToolBar {
         } else {
             viewModel.setDarkMode(false)
             binding.imageUIMode.setImageResource(R.drawable.ic_day)
+        }
+    }
+
+    override fun onBackPressed() {
+        if (navHostFragment.navController.currentDestination?.id == R.id.dashboardFragment && viewModel.visibleBackPress.value == false) {
+            super.onBackPressed()
+        } else {
+            onClickBackPress()
         }
     }
 }

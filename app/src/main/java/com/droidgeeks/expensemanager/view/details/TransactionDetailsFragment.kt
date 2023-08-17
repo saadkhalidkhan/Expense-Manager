@@ -30,13 +30,18 @@ import com.droidgeeks.expensemanager.utils.snack
 import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 import com.droidgeeks.expensemanager.utils.viewState.DetailState
 import com.droidgeeks.expensemanager.view.base.BaseFragment
+import com.droidgeeks.expensemanager.view.details.listener.ITransactionDetail
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBinding, TransactionViewModel>() {
+class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBinding, TransactionViewModel>(),
+    ITransactionDetail {
+
     private val args: TransactionDetailsFragmentArgs by navArgs()
     override val viewModel: TransactionViewModel by activityViewModels()
+
+    private var transaction: Transaction ?= null
 
     // handle permission dialog
     private val requestLauncher =
@@ -47,8 +52,8 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
     private fun showErrorDialog() =
         findNavController().navigate(
             TransactionDetailsFragmentDirections.actionTransactionDetailsFragmentToErrorDialog(
-                "Image share failed!",
-                "You have to enable storage permission to share transaction as Image"
+                getString(R.string.image_share_failed),
+                getString(R.string.you_have_to_enable_storage_permission_to_share_transaction_as_image)
             )
         )
 
@@ -59,6 +64,7 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.clickListener = this
         val transaction = args.transaction
         getTransaction(transaction.id)
         observeTransaction()
@@ -77,6 +83,7 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
                 }
 
                 is DetailState.Success -> {
+                    transaction = detailState.transaction
                     onDetailsLoaded(detailState.transaction)
                 }
 
@@ -102,15 +109,6 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
         createdAt.setText(transaction.createdAtDateFormat)
         tagIcon.setImageResource(transaction.tagIcon)
 
-        binding.editTransaction.setOnClickListener {
-            val bundle = Bundle().apply {
-                putSerializable("transaction", transaction)
-            }
-            findNavController().navigate(
-                R.id.action_transactionDetailsFragment_to_editTransactionFragment,
-                bundle
-            )
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -198,4 +196,24 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = FragmentTransactionDetailsBinding.inflate(inflater, container, false)
+
+    override fun onClickEdit() {
+        val bundle = Bundle().apply {
+            putSerializable("transaction", transaction)
+        }
+        findNavController().navigate(
+            R.id.action_transactionDetailsFragment_to_editTransactionFragment,
+            bundle
+        )
+    }
+
+    override fun onClickDelete() {
+        binding.root.snack(
+            string = R.string.success_expense_deleted
+        )
+        viewModel.deleteByID(args.transaction.id)
+            .run {
+                findNavController().navigateUp()
+            }
+    }
 }

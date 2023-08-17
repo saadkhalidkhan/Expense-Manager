@@ -83,4 +83,12 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH
     fun setOnItemClickListener(listener: (Transaction) -> Unit) {
         onItemClickListener = listener
     }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 }

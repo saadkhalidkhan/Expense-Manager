@@ -2,6 +2,7 @@ package com.droidgeeks.expensemanager.view.main.viewmodel
 
 import android.net.Uri
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.droidgeeks.expensemanager.data.local.datastore.UIModeImpl
@@ -37,6 +38,8 @@ class TransactionViewModel @Inject constructor(
 
     private val _transactionFilter = MutableStateFlow("Overall")
     val transactionFilter: StateFlow<String> = _transactionFilter
+
+    var visibleBackPress: MutableLiveData<Boolean> = MutableLiveData(false)
 
     private val _uiState = MutableStateFlow<ViewState>(ViewState.Loading)
     private val _detailState = MutableStateFlow<DetailState>(DetailState.Loading)

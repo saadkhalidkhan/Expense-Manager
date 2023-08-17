@@ -23,6 +23,19 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize">
 
+            <ImageView
+                android:id="@+id/imageBackPress"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{()->clickListener.onClickBackPress()}"
+                android:src="@drawable/ic_back"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"

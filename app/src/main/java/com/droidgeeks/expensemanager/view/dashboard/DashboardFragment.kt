@@ -34,6 +34,7 @@ import com.droidgeeks.expensemanager.utils.viewState.ExportState
 import com.droidgeeks.expensemanager.utils.viewState.ViewState
 import com.droidgeeks.expensemanager.view.adapter.TransactionAdapter
 import com.droidgeeks.expensemanager.view.base.BaseFragment
+import com.droidgeeks.expensemanager.view.dashboard.listener.IDashboard
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,7 +44,7 @@ import kotlin.math.abs
 
 @AndroidEntryPoint
 class DashboardFragment :
-    BaseFragment<FragmentDashboardBinding, TransactionViewModel>() {
+    BaseFragment<FragmentDashboardBinding, TransactionViewModel>(), IDashboard {
     private lateinit var transactionAdapter: TransactionAdapter
     override val viewModel: TransactionViewModel by activityViewModels()
 
@@ -65,7 +66,6 @@ class DashboardFragment :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -78,6 +78,13 @@ class DashboardFragment :
     }
 
     private fun observeFilter() = with(binding) {
+        viewModel.visibleBackPress.observe(viewLifecycleOwner) { visible ->
+            if (!visible) {
+                binding.btnAddTransaction.visibility = View.VISIBLE
+                viewModel.overall()
+            }
+        }
+
         lifecycleScope.launchWhenCreated {
             viewModel.transactionFilter.collect { filter ->
                 when (filter) {
@@ -203,19 +210,20 @@ class DashboardFragment :
 
     private fun showAllViews() = with(binding) {
         dashboardGroup.show()
-        emptyStateLayout.hide()
+        emptyStateLayout.emptyStateView.visibility = View.GONE
         transactionRv.show()
     }
 
     private fun hideAllViews() = with(binding) {
         dashboardGroup.hide()
-        emptyStateLayout.show()
+        emptyStateLayout.emptyStateView.visibility = View.VISIBLE
     }
 
     private fun onTransactionLoaded(list: List<Transaction>) =
         transactionAdapter.differ.submitList(list)
 
     private fun initViews() = with(binding) {
+        clickListener = this@DashboardFragment
         btnAddTransaction.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_addTransactionFragment)
         }
@@ -365,5 +373,17 @@ class DashboardFragment :
             viewModel.setDarkMode(false)
             item.setIcon(R.drawable.ic_day)
         }
+    }
+
+    override fun onClickIncome() {
+        viewModel.visibleBackPress.value = true
+        binding.btnAddTransaction.visibility = View.GONE
+        viewModel.allIncome()
+    }
+
+    override fun onClickExpense() {
+        viewModel.visibleBackPress.value = true
+        binding.btnAddTransaction.visibility = View.GONE
+        viewModel.allExpense()
     }
 }
