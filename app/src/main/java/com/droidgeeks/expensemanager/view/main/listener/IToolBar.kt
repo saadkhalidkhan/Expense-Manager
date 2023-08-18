@@ -5,4 +5,6 @@ interface IToolBar {
     fun onClickUIMode()
     fun onClickBackPress()
 
+    fun onClickShare()
+
 }

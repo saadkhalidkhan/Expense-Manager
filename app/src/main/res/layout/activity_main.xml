@@ -57,6 +57,18 @@
                 android:onClick="@{()->clickListener.onClickUIMode()}"
                 android:src="@drawable/ic_day"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintEnd_toStartOf="@+id/imageShare"
+                app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
+            <ImageView
+                android:id="@+id/imageShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{()->clickListener.onClickShare()}"
+                android:src="@drawable/ic_share"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTitle" />
         </androidx.constraintlayout.widget.ConstraintLayout>

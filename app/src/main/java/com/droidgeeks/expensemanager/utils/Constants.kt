@@ -1,5 +1,7 @@
 package com.droidgeeks.expensemanager.utils
 
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import com.droidgeeks.expensemanager.R
 import com.droidgeeks.expensemanager.data.local.model.TransactionListModel
 
@@ -21,4 +23,11 @@ object Constants {
         TransactionListModel(R.drawable.ic_utilities, R.string.utilities),
         TransactionListModel(R.drawable.ic_others, R.string.other)
     )
+
+    fun sharing(message: String?, activity: AppCompatActivity) {
+        val sendIntent = Intent(Intent.ACTION_SEND)
+        sendIntent.type = "text/plain"
+        sendIntent.putExtra(Intent.EXTRA_TEXT, message)
+        activity.startActivity(Intent.createChooser(sendIntent, "Sharing"))
+    }
 }

@@ -14,8 +14,10 @@ import com.droidgeeks.expensemanager.data.local.datastore.UIModeImpl
 import com.droidgeeks.expensemanager.databinding.ActivityMainBinding
 import com.droidgeeks.expensemanager.repo.TransactionRepo
 import com.droidgeeks.expensemanager.services.exportcsv.ExportCsvService
+import com.droidgeeks.expensemanager.utils.Constants.sharing
 import com.droidgeeks.expensemanager.view.main.listener.IToolBar
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
+import com.google.firebase.FirebaseApp
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity(), IToolBar {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -82,22 +85,22 @@ class MainActivity : AppCompatActivity(), IToolBar {
             when (destination.id) {
 
                 R.id.dashboardFragment -> {
-                    binding.imageBackPress.visibility = View.INVISIBLE
+                    setViewVisibility(View.VISIBLE, View.INVISIBLE, View.VISIBLE)
                     binding.tvTitle.text = getString(R.string.text_dashboard)
                 }
 
                 R.id.transactionDetailsFragment -> {
-                    binding.imageBackPress.visibility = View.VISIBLE
+                    setViewVisibility(View.GONE, View.VISIBLE, View.GONE)
                     binding.tvTitle.text = getString(R.string.transaction_details)
                 }
 
                 R.id.editTransactionFragment -> {
-                    binding.imageBackPress.visibility = View.VISIBLE
+                    setViewVisibility(View.GONE, View.VISIBLE, View.GONE)
                     binding.tvTitle.text = getString(R.string.edit_transaction)
                 }
 
                 R.id.addTransactionFragment -> {
-                    binding.imageBackPress.visibility = View.VISIBLE
+                    setViewVisibility(View.GONE, View.VISIBLE, View.GONE)
                     binding.tvTitle.text = getString(R.string.text_add_transaction)
                 }
 
@@ -106,6 +109,12 @@ class MainActivity : AppCompatActivity(), IToolBar {
                 }
             }
         }
+    }
+
+    private fun setViewVisibility(imageShare: Int, imageBackPress: Int, uiMode: Int) {
+        binding.imageShare.visibility = imageShare
+        binding.imageBackPress.visibility = imageBackPress
+        binding.imageUIMode.visibility = uiMode
     }
 
     private fun initViews(binding: ActivityMainBinding) {
@@ -139,11 +148,19 @@ class MainActivity : AppCompatActivity(), IToolBar {
             || navHostFragment.navController.currentDestination?.id == R.id.editTransactionFragment
             || navHostFragment.navController.currentDestination?.id == R.id.errorDialog
         ) {
+
             viewModel.visibleBackPress.value = false
             navHostFragment.navController.navigateUp()
         } else {
             viewModel.visibleBackPress.value = false
         }
+    }
+
+    override fun onClickShare() {
+        sharing(
+            "https://play.google.com/store/apps/details?id=com.droidgeeks.expensemanager",
+            this@MainActivity
+        )
     }
 
     private fun setUIMode(isChecked: Boolean) {
