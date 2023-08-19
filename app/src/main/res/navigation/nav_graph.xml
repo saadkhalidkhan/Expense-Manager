@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/dashboardFragment"
+    android:id="@+id/nav_graph">
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -43,7 +43,7 @@
         tools:layout="@layout/fragment_transaction_details">
         <argument
             android:name="transaction"
-            app:argType="com.droidgeeks.expensemanager.data.local.model.Transaction" />
+            app:argType="string" />
         <action
             android:id="@+id/action_transactionDetailsFragment_to_editTransactionFragment"
             app:destination="@id/editTransactionFragment"
@@ -62,7 +62,7 @@
         tools:layout="@layout/fragment_edit_transaction">
         <argument
             android:name="transaction"
-            app:argType="com.droidgeeks.expensemanager.data.local.model.Transaction" />
+            app:argType="string" />
         <action
             android:id="@+id/edit_to_details"
             app:destination="@id/transactionDetailsFragment" />

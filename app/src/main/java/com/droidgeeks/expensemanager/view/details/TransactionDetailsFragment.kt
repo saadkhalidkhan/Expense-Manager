@@ -32,6 +32,7 @@ import com.droidgeeks.expensemanager.utils.viewState.DetailState
 import com.droidgeeks.expensemanager.view.base.BaseFragment
 import com.droidgeeks.expensemanager.view.details.listener.ITransactionDetail
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,15 +58,10 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
             )
         )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.clickListener = this
-        val transaction = args.transaction
+        val transaction = Gson().fromJson(args.transaction,Transaction::class.java)
         getTransaction(transaction.id)
         observeTransaction()
     }
@@ -109,26 +105,6 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
         createdAt.setText(transaction.createdAtDateFormat)
         tagIcon.setImageResource(transaction.tagIcon)
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_share, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_delete -> {
-                viewModel.deleteByID(args.transaction.id)
-                    .run {
-                        findNavController().navigateUp()
-                    }
-            }
-
-            R.id.action_share_text -> shareText()
-            R.id.action_share_image -> shareImage()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun shareImage() {
@@ -199,7 +175,7 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
 
     override fun onClickEdit() {
         val bundle = Bundle().apply {
-            putSerializable("transaction", transaction)
+            putString("transaction", Gson().toJson(transaction))
         }
         findNavController().navigate(
             R.id.action_transactionDetailsFragment_to_editTransactionFragment,
@@ -211,7 +187,8 @@ class TransactionDetailsFragment : BaseFragment<FragmentTransactionDetailsBindin
         binding.root.snack(
             string = R.string.success_expense_deleted
         )
-        viewModel.deleteByID(args.transaction.id)
+        val transaction = Gson().fromJson(args.transaction,Transaction::class.java)
+        viewModel.deleteByID(transaction.id)
             .run {
                 findNavController().navigateUp()
             }

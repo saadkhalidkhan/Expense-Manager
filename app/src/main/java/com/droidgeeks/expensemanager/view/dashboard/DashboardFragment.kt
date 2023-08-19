@@ -37,6 +37,7 @@ import com.droidgeeks.expensemanager.view.base.BaseFragment
 import com.droidgeeks.expensemanager.view.dashboard.listener.IDashboard
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -64,13 +65,8 @@ class DashboardFragment :
 
     private val previewCsvRequestLauncher = registerForActivityResult(OpenCsvContract()) {}
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRV()
         initViews()
         observeFilter()
         observeTransaction()
@@ -239,9 +235,11 @@ class DashboardFragment :
             }
         )
 
+        setupRV()
+
         transactionAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable("transaction", it)
+                putString("transaction", Gson().toJson(it))
             }
             findNavController().navigate(
                 R.id.action_dashboardFragment_to_transactionDetailsFragment,
@@ -254,71 +252,6 @@ class DashboardFragment :
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = FragmentDashboardBinding.inflate(inflater, container, false)
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_ui, menu)
-
-//        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-//                lifecycleScope.launchWhenStarted {
-//                    when (position) {
-//                        0 -> {
-//                            viewModel.overall()
-//                            (view as TextView).setTextColor(resources.getColor(R.color.black))
-//                        }
-//
-//                        1 -> {
-//                            viewModel.allIncome()
-//                            (view as TextView).setTextColor(resources.getColor(R.color.black))
-//                        }
-//
-//                        2 -> {
-//                            viewModel.allExpense()
-//                            (view as TextView).setTextColor(resources.getColor(R.color.black))
-//                        }
-//                    }
-//                }
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//                lifecycleScope.launchWhenStarted {
-//                    viewModel.overall()
-//                }
-//            }
-//        }
-
-        // Set the item state
-        lifecycleScope.launchWhenStarted {
-            val isChecked = viewModel.getUIMode.first()
-            val uiMode = menu.findItem(R.id.action_night_mode)
-            uiMode.isChecked = isChecked
-            setUIMode(uiMode, isChecked)
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here.
-        return when (item.itemId) {
-            R.id.action_night_mode -> {
-                item.isChecked = !item.isChecked
-                setUIMode(item, item.isChecked)
-                true
-            }
-
-            R.id.action_export -> {
-                val csvFileName = "expense_manager_${System.currentTimeMillis()}"
-                csvCreateRequestLauncher.launch(csvFileName)
-                return true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 
     private fun exportCSV(csvFileUri: Uri) {
         viewModel.exportTransactionsToCsv(csvFileUri)

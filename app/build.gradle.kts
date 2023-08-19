@@ -15,8 +15,8 @@ android {
         applicationId = "com.droidgeeks.expensemanager"
         minSdk = 21
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -42,6 +42,7 @@ android {
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -96,7 +97,7 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     // activity & fragment ktx
-    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("androidx.fragment:fragment-ktx:1.5.6")
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.appcompat:appcompat:1.6.1")
 
@@ -123,4 +124,5 @@ dependencies {
 //    Ad
     implementation ("com.google.android.gms:play-services-ads:20.6.0")
 
+    implementation("com.google.code.gson:gson:2.9.0")
 }

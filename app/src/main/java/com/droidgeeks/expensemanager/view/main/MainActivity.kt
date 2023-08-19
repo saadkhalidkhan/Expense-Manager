@@ -13,7 +13,6 @@ import com.droidgeeks.expensemanager.R
 import com.droidgeeks.expensemanager.data.local.datastore.UIModeImpl
 import com.droidgeeks.expensemanager.databinding.ActivityMainBinding
 import com.droidgeeks.expensemanager.repo.TransactionRepo
-import com.droidgeeks.expensemanager.services.exportcsv.ExportCsvService
 import com.droidgeeks.expensemanager.utils.Constants.sharing
 import com.droidgeeks.expensemanager.view.main.listener.IToolBar
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
@@ -30,8 +29,8 @@ class MainActivity : AppCompatActivity(), IToolBar {
     @Inject
     lateinit var repo: TransactionRepo
 
-    @Inject
-    lateinit var exportCsvService: ExportCsvService
+//    @Inject
+//    lateinit var exportCsvService: ExportCsvService
 
     @Inject
     lateinit var themeManager: UIModeImpl
@@ -119,15 +118,10 @@ class MainActivity : AppCompatActivity(), IToolBar {
 
     private fun initViews(binding: ActivityMainBinding) {
 
-        binding.clickListener = this
-
         navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment?
-            ?: return
+            .findFragmentById(R.id.fragmentContainer) as NavHostFragment
 
-        with(navHostFragment.navController) {
-            appBarConfiguration = AppBarConfiguration(graph)
-        }
+        binding.clickListener = this
     }
 
     override fun onSupportNavigateUp(): Boolean {

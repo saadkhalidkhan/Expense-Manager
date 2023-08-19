@@ -19,6 +19,7 @@ import com.droidgeeks.expensemanager.utils.transformIntoDatePicker
 import com.droidgeeks.expensemanager.view.adapter.TransactionCategoryItemAdapter
 import com.droidgeeks.expensemanager.view.base.BaseFragment
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 
@@ -32,7 +33,7 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // receiving bundles here
-        val transaction = args.transaction
+        val transaction = Gson().fromJson(args.transaction,Transaction::class.java)
         initViews()
         setupRV()
         loadData(transaction)
@@ -189,7 +190,8 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
 
     private fun getTransactionContent(): Transaction = binding.addTransactionLayout.let {
 
-        val id = args.transaction.id
+        val transaction = Gson().fromJson(args.transaction,Transaction::class.java)
+        val id = transaction.id
         val title = it.etTitle.text.toString()
         val amount = parseDouble(it.etAmount.text.toString())
         val transactionType = selectedExpenseText
