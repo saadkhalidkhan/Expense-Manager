@@ -5,7 +5,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg_float">#FFFFFFFF</color>
     <color name="surface">#FFE187</color>
-    <color name="dark_surface">#FFCA28</color>
+    <color name="dark_surface">#FFFFFFFF</color>
     <color name="light_surface">#FFD146</color>
     <color name="background">#f9f9f9</color>
     <color name="income">#6FCF97</color>

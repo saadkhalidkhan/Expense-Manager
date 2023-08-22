@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Ausgabenmanager</string>
+    <string name="text_save_transaction">Transaktion speichern</string>
+    <string name="text_ui_mode">UI -Modus</string>
+    <string name="text_total_income">Gesamteinkommen</string>
+    <string name="text_total_expense">Gesamtausgaben</string>
+    <string name="text_total_balance">Gesamtsaldo</string>
+    <string name="text_recent_transactions">kürzliche Transaktionen</string>
+    <string name="text_view_all">Alle ansehen</string>
+    <string name="text_expense_when">Wann</string>
+    <string name="text_expense_amount">Menge</string>
+    <string name="text_expense_transaction_type">Art der Transaktion</string>
+    <string name="text_expense_tag">Etikett</string>
+    <string name="text_expense_note">Notiz</string>
+    <string name="text_expense_add_transaction">Transaktion speichern</string>
+    <string name="text_expense_rupees">$</string>
+    <string name="success_expense_saved">Transaktion erfolgreich gespeichert</string>
+    <string name="success_expense_deleted">Transaktion erfolgreich gelöscht</string>
+    <string name="success_transaction_delete">Transaktion erfolgreich gelöscht!</string>
+    <string name="text_title">Titel</string>
+    <string name="text_dashboard">Armaturenbrett</string>
+    <string name="text_about">Um</string>
+    <string name="text_filter">Filter</string>
+    <string name="text_edit">Bearbeiten</string>
+    <string name="text_createdAt">Hergestellt in</string>
+    <string name="income">Einkommen</string>
+    <string name="expense">Kosten</string>
+    <string name="bonus">Bonus</string>
+    <string name="entertainment">Unterhaltung</string>
+    <string name="food">Essen</string>
+    <string name="housing">Gehäuse</string>
+    <string name="healthcare">Gesundheitspflege</string>
+    <string name="insurance">Versicherung</string>
+    <string name="personal_spending">Persönliche Ausgaben</string>
+    <string name="salary">Gehalt</string>
+    <string name="saving">Sparen &amp; Schulden</string>
+    <string name="transportation">Transport</string>
+    <string name="utilities">Versorgungsunternehmen</string>
+    <string name="other">Andere</string>
+    <string name="success_transaction_export">Transaktion erfolgreich exportiert!</string>
+    <string name="failed_transaction_export">Exportierte Transaktion fehlgeschlagen ☹️</string>
+    <string name="text_error">Exportierte Transaktion fehlgeschlagen ☹️</string>
+    <string name="text_open">Offen</string>
+    <string name="text_about_visit_title">Besuchen</string>
+    <string name="text_app_version">V%s (%d)</string>
+    <string name="text_share_as_text">Als Text teilen</string>
+    <string name="text_share_as_image">Als Bild teilen</string>
+    <string name="text_delete">Löschen</string>
+    <string name="text_share">Aktie</string>
+    <string name="share_message">\ %s \ namount: %s, \ ntransaction-type: %s, \ ntag: %s, \ ndate: %s, \ nnote: %s, \ nCreatedat: %s</string>
+    <string name="text_transaction_empty_title">Noch keine Transaktion!</string>
+    <string name="text_transaction_empty_desc">Nach Ihrer ersten Transaktion können Sie es hier anzeigen</string>
+    <string name="text_add_transaction">Transaktion hinzufügen</string>
+    <string name="text_undo">Rückgängig machen</string>
+    <string name="text_error_occurred">Ein Fehler ist aufgetreten!</string>
+    <string name="title_must_not_be_empty">Der Titel darf nicht leer sein</string>
+    <string name="amount_must_not_be_empty">Menge darf nicht leer sein</string>
+    <string name="tag_must_not_be_empty">Bitte wählen Sie Kategorie</string>
+    <string name="date_must_not_be_empty">Datum darf nicht leer sein</string>
+    <string name="note_must_not_be_empty">Hinweis darf nicht leer sein</string>
+    <string name="select_transaction_type">Bitte wählen Sie Transaktionstyp</string>
+    <string name="transaction_details">Transaktionsdetails</string>
+    <string name="edit_transaction">Transaktion bearbeiten</string>
+    <string name="image_share_failed">Image Share fehlgeschlagen!</string>
+    <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">Sie müssen die Speichergenehmigung ermöglichen, um Transaktion als Bild zu teilen</string>
+
+    <!--Ad mob Ads Id Setup-->
+    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
+    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
+
+    <!--    admob testing ID's     -->
+    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+</resources>

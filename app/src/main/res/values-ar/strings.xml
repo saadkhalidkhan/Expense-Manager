@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">مدير النفقات</string>
+    <string name="text_save_transaction">حفظ المعاملة</string>
+    <string name="text_ui_mode">وضع واجهة المستخدم</string>
+    <string name="text_total_income">إجمالي الدخل</string>
+    <string name="text_total_expense">المصاريف الكلية</string>
+    <string name="text_total_balance">التوازن الكلي</string>
+    <string name="text_recent_transactions">التحويلات الاخيرة</string>
+    <string name="text_view_all">عرض الكل</string>
+    <string name="text_expense_when">متى</string>
+    <string name="text_expense_amount">كمية</string>
+    <string name="text_expense_transaction_type">نوع المعاملة</string>
+    <string name="text_expense_tag">بطاقة شعار</string>
+    <string name="text_expense_note">ملحوظة</string>
+    <string name="text_expense_add_transaction">حفظ المعاملة</string>
+    <string name="text_expense_rupees">$</string>
+    <string name="success_expense_saved">المعاملة المحفوظة بنجاح</string>
+    <string name="success_expense_deleted">تم حذف المعاملة بنجاح</string>
+    <string name="success_transaction_delete">تم حذف المعاملة بنجاح!</string>
+    <string name="text_title">عنوان</string>
+    <string name="text_dashboard">لوحة القيادة</string>
+    <string name="text_about">عن</string>
+    <string name="text_filter">منقي</string>
+    <string name="text_edit">يحرر</string>
+    <string name="text_createdAt">أنشئت في</string>
+    <string name="income">دخل</string>
+    <string name="expense">مصروف</string>
+    <string name="bonus">علاوة</string>
+    <string name="entertainment">ترفيه</string>
+    <string name="food">طعام</string>
+    <string name="housing">السكن</string>
+    <string name="healthcare">الرعاىة الصحية</string>
+    <string name="insurance">تأمين</string>
+    <string name="personal_spending">الإنفاق الشخصي</string>
+    <string name="salary">مرتب</string>
+    <string name="saving">الادخار والديون</string>
+    <string name="transportation">مواصلات</string>
+    <string name="utilities">خدمات</string>
+    <string name="other">آحرون</string>
+    <string name="success_transaction_export">تم تصدير المعاملة بنجاح!</string>
+    <string name="failed_transaction_export">فشلت المعاملة التي تم تصديرها ☹</string>
+    <string name="text_error">فشلت المعاملة التي تم تصديرها ☹</string>
+    <string name="text_open">يفتح</string>
+    <string name="text_about_visit_title">يزور</string>
+    <string name="text_app_version">V ٪ S (٪ D)</string>
+    <string name="text_share_as_text">شارك كنص</string>
+    <string name="text_share_as_image">شارك كصورة</string>
+    <string name="text_delete">يمسح</string>
+    <string name="text_share">يشارك</string>
+    <string name="share_message">\ ٪ s \ namount: ٪ s ، \ ntransaction-type: ٪ s ، \ ntag: ٪ s ، \ ndate: ٪ s ، \ nnote: ٪ s ، \ ncreatedat: ٪ s</string>
+    <string name="text_transaction_empty_title">لا توجد معاملة بعد!</string>
+    <string name="text_transaction_empty_desc">بعد المعاملة الأولى ، ستتمكن من مشاهدتها هنا</string>
+    <string name="text_add_transaction">أضف المعاملة</string>
+    <string name="text_undo">الغاء التحميل</string>
+    <string name="text_error_occurred">حدث خطأ!</string>
+    <string name="title_must_not_be_empty">يجب ألا يكون العنوان فارغًا</string>
+    <string name="amount_must_not_be_empty">يجب ألا يكون المبلغ فارغًا</string>
+    <string name="tag_must_not_be_empty">الرجاء تحديد الفئة</string>
+    <string name="date_must_not_be_empty">يجب ألا يكون التاريخ فارغًا</string>
+    <string name="note_must_not_be_empty">ملاحظة يجب ألا تكون فارغة</string>
+    <string name="select_transaction_type">الرجاء تحديد نوع المعاملة</string>
+    <string name="transaction_details">تفاصيل الصفقه</string>
+    <string name="edit_transaction">تحرير المعاملة</string>
+    <string name="image_share_failed">فشل مشاركة الصورة!</string>
+    <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">يجب عليك تمكين إذن التخزين لمشاركة المعاملة كصورة</string>
+
+    <!--Ad mob Ads Id Setup-->
+    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
+    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
+
+    <!--    admob testing ID's     -->
+    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+</resources>
