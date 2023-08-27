@@ -1,5 +1,7 @@
 package com.droidgeeks.expensemanager.repo
 
+import android.content.Context
+import com.droidgeeks.expensemanager.R
 import com.droidgeeks.expensemanager.data.local.dao.TransactionDao
 import com.droidgeeks.expensemanager.data.local.model.Transaction
 import javax.inject.Inject
@@ -25,11 +27,15 @@ class TransactionRepo @Inject constructor(private val appTransactionDao: Transac
     fun getAllTransactions() = appTransactionDao.getAllTransactions()
 
     // get single transaction type - Expense or Income or else overall
-    fun getAllSingleTransaction(transactionType: String) = if (transactionType == "Overall") {
-        getAllTransactions()
-    } else {
-        appTransactionDao.getAllSingleTransaction(transactionType)
-    }
+    fun getAllSingleTransaction(transactionType: String, context: Context) =
+        if (transactionType == context.resources.getString(
+                R.string.overall
+            )
+        ) {
+            getAllTransactions()
+        } else {
+            appTransactionDao.getAllSingleTransaction(transactionType)
+        }
 
     // get transaction by ID
     fun getByID(id: Int) = appTransactionDao.getTransactionByID(id)

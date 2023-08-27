@@ -75,7 +75,7 @@ fun TextInputEditText.transformIntoDatePicker(
     }
 }
 
-fun usdCurrencyConvertor(amount: Double): String {
+fun usdCurrencyConvertor(amount: Int): String {
     val format: NumberFormat = NumberFormat.getCurrencyInstance()
     format.maximumFractionDigits = 0
     format.currency = Currency.getInstance("USD")
@@ -100,4 +100,7 @@ val String.cleanTextContent: String
 // parse string to double
 fun parseDouble(value: String?): Double {
     return if (value.isNullOrEmpty()) Double.NaN else value.toDouble()
+}
+fun parseInt(value: String?): Int {
+    return if (value.isNullOrEmpty()) 0 else value.toInt()
 }

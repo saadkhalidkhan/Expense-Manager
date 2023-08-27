@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.droidgeeks.expensemanager.R
+import com.droidgeeks.expensemanager.app.ExpenseManager
 import com.droidgeeks.expensemanager.data.local.datastore.UIModeImpl
 import com.droidgeeks.expensemanager.data.local.model.Transaction
 import com.droidgeeks.expensemanager.repo.TransactionRepo
@@ -29,14 +31,15 @@ import javax.inject.Inject
 class TransactionViewModel @Inject constructor(
     private val transactionRepo: TransactionRepo,
     private val exportService: ExportCsvService,
-    private val uiModeDataStore: UIModeImpl
+    private val uiModeDataStore: UIModeImpl,
+    private val context: ExpenseManager
 ) : ViewModel() {
 
     // state for export csv status
     private val _exportCsvState = MutableStateFlow<ExportState>(ExportState.Empty)
     val exportCsvState: StateFlow<ExportState> = _exportCsvState
 
-    private val _transactionFilter = MutableStateFlow("Overall")
+    private val _transactionFilter = MutableStateFlow(context.resources.getString(R.string.overall))
     val transactionFilter: StateFlow<String> = _transactionFilter
 
     var visibleBackPress: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -90,7 +93,7 @@ class TransactionViewModel @Inject constructor(
 
     // get all transaction
     fun getAllTransaction(type: String) = viewModelScope.launch {
-        transactionRepo.getAllSingleTransaction(type).collect { result ->
+        transactionRepo.getAllSingleTransaction(type, context).collect { result ->
             if (result.isNullOrEmpty()) {
                 _uiState.value = ViewState.Empty
             } else {
@@ -116,14 +119,14 @@ class TransactionViewModel @Inject constructor(
     }
 
     fun allIncome() {
-        _transactionFilter.value = "Income"
+        _transactionFilter.value = context.resources.getString(R.string.income)
     }
 
     fun allExpense() {
-        _transactionFilter.value = "Expense"
+        _transactionFilter.value = context.resources.getString(R.string.expense)
     }
 
     fun overall() {
-        _transactionFilter.value = "Overall"
+        _transactionFilter.value = context.resources.getString(R.string.overall)
     }
 }

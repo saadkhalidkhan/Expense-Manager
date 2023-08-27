@@ -7,8 +7,6 @@ import com.droidgeeks.expensemanager.data.local.model.TransactionListModel
 
 object Constants {
 
-    val transactionType = listOf("Income", "Expense")
-
     val transactionTags = arrayListOf(
         TransactionListModel(R.drawable.ic_bonus, R.string.bonus),
         TransactionListModel(R.drawable.ic_entertainment, R.string.entertainment),

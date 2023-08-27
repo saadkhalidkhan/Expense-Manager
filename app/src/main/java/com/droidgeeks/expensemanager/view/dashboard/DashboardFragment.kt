@@ -6,8 +6,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +14,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,9 +38,9 @@ import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 import kotlin.math.abs
+
 
 @AndroidEntryPoint
 class DashboardFragment :
@@ -84,7 +83,7 @@ class DashboardFragment :
         lifecycleScope.launchWhenCreated {
             viewModel.transactionFilter.collect { filter ->
                 when (filter) {
-                    "Overall" -> {
+                    getString(R.string.overall) -> {
                         totalBalanceView.totalBalanceTitle.text =
                             getString(R.string.text_total_balance)
                         totalIncomeExpenseView.show()
@@ -93,13 +92,13 @@ class DashboardFragment :
                         expenseCardView.totalIcon.setImageResource(R.drawable.ic_expense)
                     }
 
-                    "Income" -> {
+                    getString(R.string.income) -> {
                         totalBalanceView.totalBalanceTitle.text =
                             getString(R.string.text_total_income)
                         totalIncomeExpenseView.hide()
                     }
 
-                    "Expense" -> {
+                    getString(R.string.expense) -> {
                         totalBalanceView.totalBalanceTitle.text =
                             getString(R.string.text_total_expense)
                         totalIncomeExpenseView.hide()
@@ -111,10 +110,15 @@ class DashboardFragment :
     }
 
     private fun setupRV() = with(binding) {
-        transactionAdapter = TransactionAdapter()
+        transactionAdapter = TransactionAdapter(requireContext())
         transactionRv.apply {
             adapter = transactionAdapter
             layoutManager = LinearLayoutManager(activity)
+            val dividerItemDecoration = DividerItemDecoration(
+                requireContext(),
+                (layoutManager as LinearLayoutManager).orientation
+            )
+            addItemDecoration(dividerItemDecoration)
         }
     }
 
@@ -171,7 +175,7 @@ class DashboardFragment :
     }
 
     private fun onTotalTransactionLoaded(transaction: List<Transaction>) = with(binding) {
-        val (totalIncome, totalExpense) = transaction.partition { it.transactionType == "Income" }
+        val (totalIncome, totalExpense) = transaction.partition { it.transactionType == resources.getString(R.string.income) }
         val income = totalIncome.sumOf { it.amount }
         val expense = totalExpense.sumOf { it.amount }
         incomeCardView.total.text = "+ ".plus(usdCurrencyConvertor(income))

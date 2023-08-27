@@ -1,5 +1,6 @@
 package com.droidgeeks.expensemanager.view.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -11,7 +12,8 @@ import com.droidgeeks.expensemanager.data.local.model.Transaction
 import com.droidgeeks.expensemanager.databinding.ItemTransactionLayoutBinding
 import com.droidgeeks.expensemanager.utils.usdCurrencyConvertor
 
-class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH>() {
+class TransactionAdapter(private val context: Context) :
+    RecyclerView.Adapter<TransactionAdapter.TransactionVH>() {
 
     inner class TransactionVH(val binding: ItemTransactionLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -48,7 +50,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH
             transactionDate.text = item.date
 
             when (item.transactionType) {
-                "Income" -> {
+                context.resources.getString(R.string.income) -> {
                     transactionAmount.setTextColor(
                         ContextCompat.getColor(
                             transactionAmount.context,
@@ -59,7 +61,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVH
                     transactionAmount.text = "+ ".plus(usdCurrencyConvertor(item.amount))
                 }
 
-                "Expense" -> {
+                context.resources.getString(R.string.expense) -> {
                     transactionAmount.setTextColor(
                         ContextCompat.getColor(
                             transactionAmount.context,

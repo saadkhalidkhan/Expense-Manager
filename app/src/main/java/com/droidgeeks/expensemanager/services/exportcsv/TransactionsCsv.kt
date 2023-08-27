@@ -7,7 +7,7 @@ data class TransactionsCSV(
     @CsvBindByName(column = "title")
     val title: String,
     @CsvBindByName(column = "amount")
-    val amount: Double,
+    val amount: Int,
     @CsvBindByName(column = "transactionType")
     val transactionType: String,
     @CsvBindByName(column = "tag")

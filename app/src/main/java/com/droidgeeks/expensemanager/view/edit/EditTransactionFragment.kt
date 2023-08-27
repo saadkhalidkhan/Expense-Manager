@@ -14,6 +14,7 @@ import com.droidgeeks.expensemanager.data.local.model.TransactionListModel
 import com.droidgeeks.expensemanager.databinding.FragmentEditTransactionBinding
 import com.droidgeeks.expensemanager.utils.Constants
 import com.droidgeeks.expensemanager.utils.parseDouble
+import com.droidgeeks.expensemanager.utils.parseInt
 import com.droidgeeks.expensemanager.utils.snack
 import com.droidgeeks.expensemanager.utils.transformIntoDatePicker
 import com.droidgeeks.expensemanager.view.adapter.TransactionCategoryItemAdapter
@@ -103,7 +104,7 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
                         this.etTitle.error = getString(R.string.title_must_not_be_empty)
                     }
 
-                    amount.isNaN() -> {
+                    amount == 0 -> {
                         this.etAmount.error = getString(R.string.amount_must_not_be_empty)
                     }
 
@@ -193,7 +194,7 @@ class EditTransactionFragment : BaseFragment<FragmentEditTransactionBinding, Tra
         val transaction = Gson().fromJson(args.transaction,Transaction::class.java)
         val id = transaction.id
         val title = it.etTitle.text.toString()
-        val amount = parseDouble(it.etAmount.text.toString())
+        val amount = parseInt(it.etAmount.text.toString())
         val transactionType = selectedExpenseText
         val tag = if (selectedCategory != null) selectedCategory!! else ""
         val date = it.etWhen.text.toString()
