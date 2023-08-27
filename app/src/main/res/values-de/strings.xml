@@ -63,6 +63,7 @@
     <string name="edit_transaction">Transaktion bearbeiten</string>
     <string name="image_share_failed">Image Share fehlgeschlagen!</string>
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">Sie müssen die Speichergenehmigung ermöglichen, um Transaktion als Bild zu teilen</string>
+    <string name="overall">Gesamt</string>
 
     <!--Ad mob Ads Id Setup-->
     <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>

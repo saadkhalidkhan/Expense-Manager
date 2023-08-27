@@ -63,6 +63,7 @@
     <string name="edit_transaction">تحرير المعاملة</string>
     <string name="image_share_failed">فشل مشاركة الصورة!</string>
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">يجب عليك تمكين إذن التخزين لمشاركة المعاملة كصورة</string>
+    <string name="overall">إجمالي</string>
 
     <!--Ad mob Ads Id Setup-->
     <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>

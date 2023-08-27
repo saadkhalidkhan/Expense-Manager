@@ -69,11 +69,11 @@
     <string name="edit_transaction">Edit Transaction</string>
     <string name="image_share_failed">Image share failed!</string>
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">You have to enable storage permission to share transaction as Image</string>
+    <string name="overall">Overall</string>
 
     <!--Ad mob Ads Id Setup-->
     <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
     <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-    <string name="overall">Overall</string>
 
     <!--    admob testing ID's     -->
     <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->

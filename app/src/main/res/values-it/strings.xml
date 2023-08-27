@@ -63,6 +63,8 @@
     <string name="edit_transaction">Modifica transazione</string>
     <string name="image_share_failed">Condivisione dell\'immagine non riuscita!</string>
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">È necessario consentire l\'autorizzazione di archiviazione per condividere le transazioni come immagine</string>
+    <string name="overall">Complessivamente</string>
+
     <!--Ad mob Ads Id Setup-->
     <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
     <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>

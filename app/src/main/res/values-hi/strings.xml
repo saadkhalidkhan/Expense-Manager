@@ -63,6 +63,8 @@
     <string name="edit_transaction">लेन -देन संपादित करें</string>
     <string name="image_share_failed">छवि शेयर विफल रहा!</string>
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">आपको छवि के रूप में लेनदेन को साझा करने के लिए भंडारण की अनुमति को सक्षम करना होगा</string>
+    <string name="overall">कुल मिलाकर</string>
+
     <!--Ad mob Ads Id Setup-->
     <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
     <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>

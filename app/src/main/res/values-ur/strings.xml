@@ -63,6 +63,8 @@
     <string name="edit_transaction">لین دین میں ترمیم کریں</string>
     <string name="image_share_failed">تصویری شیئر ناکام ہوگیا!</string>
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">آپ کو بطور تصویر لین دین کا اشتراک کرنے کے لئے اسٹوریج کی اجازت کو قابل بنانا ہوگا</string>
+    <string name="overall">مجموعی طور پر</string>
+
     <!--Ad mob Ads Id Setup-->
     <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
     <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
