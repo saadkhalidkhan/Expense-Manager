@@ -7,7 +7,7 @@ import com.droidgeeks.expensemanager.data.local.model.Transaction
 
 @Database(
     entities = [Transaction::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
