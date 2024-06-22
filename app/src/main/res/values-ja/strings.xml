@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">経費マネージャー</string>
+    <string name="app_name">エクスペンジラ</string>
     <string name="text_save_transaction">トランザクションを保存します</string>
     <string name="text_ui_mode">UIモード</string>
     <string name="text_total_income">総収入</string>

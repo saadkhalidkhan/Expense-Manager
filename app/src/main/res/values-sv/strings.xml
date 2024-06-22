@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kostnadschef</string>
+    <string name="app_name">Expenzilla</string>
     <string name="text_save_transaction">Spara transaktion</string>
     <string name="text_ui_mode">UI -läge</string>
     <string name="text_total_income">Total inkomst</string>

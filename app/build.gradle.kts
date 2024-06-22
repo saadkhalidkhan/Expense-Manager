@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.droidgeeks.expensemanager"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 6
         versionName = "1.5"
 
@@ -124,7 +124,7 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics-ktx")
 
 //    Ad
-    implementation ("com.google.android.gms:play-services-ads:20.6.0")
+    implementation ("com.google.android.gms:play-services-ads:23.1.0")
 
     implementation("com.google.code.gson:gson:2.9.0")
 }

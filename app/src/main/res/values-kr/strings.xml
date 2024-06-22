@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">비용 관리자</string>
+    <string name="app_name">익스펜질라</string>
     <string name="text_save_transaction">거래를 저장하십시오</string>
     <string name="text_ui_mode">UI 모드</string>
     <string name="text_total_income">총 수입</string>

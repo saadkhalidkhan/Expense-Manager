@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Direttore delle spese</string>
+    <string name="app_name">Expenzilla</string>
     <string name="text_save_transaction">Salva transazione</string>
     <string name="text_ui_mode">Modalità dell\'interfaccia utente</string>
     <string name="text_total_income">Reddito totale</string>

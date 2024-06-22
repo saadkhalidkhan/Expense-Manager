@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">व्यय प्रबंधक</string>
+    <string name="app_name">एक्सपेंज़िला</string>
     <string name="text_save_transaction">लेन -देन सहेजें</string>
     <string name="text_ui_mode">यूआई मोड</string>
     <string name="text_total_income">कुल आय</string>

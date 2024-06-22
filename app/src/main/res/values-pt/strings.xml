@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gerente de despesas</string>
+    <string name="app_name">Expenzila</string>
     <string name="text_save_transaction">Salvar transação</string>
     <string name="text_ui_mode">Modo da interface do usuário</string>
     <string name="text_total_income">Renda total</string>
