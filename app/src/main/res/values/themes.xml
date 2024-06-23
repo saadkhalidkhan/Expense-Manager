@@ -10,7 +10,7 @@
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorAccent">@color/blue_500</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/surface</item>
+        <item name="android:statusBarColor" >@color/surface</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/lightNavEnabled</item>
         <item name="android:navigationBarColor" tools:targetApi="o">@color/surface</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">@bool/lightNavEnabled

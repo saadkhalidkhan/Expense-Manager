@@ -14,7 +14,7 @@ class ExportCsvService @Inject constructor(
 ) {
 
     @WorkerThread
-    fun <T> writeToCSV(csvFileUri: Uri, content: List<T>) = flow<Uri> {
+    fun <T> writeToCSV(csvFileUri: Uri, content: List<T>) = flow {
         val fileDescriptor = appContext.contentResolver.openFileDescriptor(csvFileUri, "w")
         if (fileDescriptor != null) {
             fileDescriptor.use {

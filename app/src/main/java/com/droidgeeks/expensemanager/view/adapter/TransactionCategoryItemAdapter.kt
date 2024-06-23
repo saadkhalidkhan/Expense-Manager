@@ -11,7 +11,7 @@ import com.droidgeeks.expensemanager.databinding.ItemAddtransactionLayoutBinding
 
 class TransactionCategoryItemAdapter(
     val context: Context,
-    val categoryList: ArrayList<TransactionListModel>
+    private val categoryList: ArrayList<TransactionListModel>
 ) :
     RecyclerView.Adapter<TransactionCategoryItemAdapter.TransactionVH>() {
 

@@ -42,12 +42,12 @@
     <string name="text_error">수출 된 거래 실패 port️</string>
     <string name="text_open">열려 있는</string>
     <string name="text_about_visit_title">방문하다</string>
-    <string name="text_app_version">V%S (%D)</string>
+    <string name="text_app_version">v%s (%d)</string>
     <string name="text_share_as_text">텍스트로 공유하십시오</string>
     <string name="text_share_as_image">이미지로 공유하십시오</string>
     <string name="text_delete">삭제</string>
     <string name="text_share">공유하다</string>
-    <string name="share_message">\ %s \ namount : %s, \ ntransaction-type : %s, \ ntag : %s, \ ndate : %s, \ nnote : %s, \ ncreatedat : ​​%s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">아직 거래가 없습니다!</string>
     <string name="text_transaction_empty_desc">첫 거래 후에는 여기에서 볼 수 있습니다.</string>
     <string name="text_add_transaction">트랜잭션을 추가하십시오</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">트랜잭션을 이미지로 공유 할 수있는 스토리지 권한을 활성화해야합니다.</string>
     <string name="overall">전반적인</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

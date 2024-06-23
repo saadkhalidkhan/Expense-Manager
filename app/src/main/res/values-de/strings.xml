@@ -47,7 +47,7 @@
     <string name="text_share_as_image">Als Bild teilen</string>
     <string name="text_delete">Löschen</string>
     <string name="text_share">Aktie</string>
-    <string name="share_message">\ %s \ namount: %s, \ ntransaction-type: %s, \ ntag: %s, \ ndate: %s, \ nnote: %s, \ nCreatedat: %s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">Noch keine Transaktion!</string>
     <string name="text_transaction_empty_desc">Nach Ihrer ersten Transaktion können Sie es hier anzeigen</string>
     <string name="text_add_transaction">Transaktion hinzufügen</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">Sie müssen die Speichergenehmigung ermöglichen, um Transaktion als Bild zu teilen</string>
     <string name="overall">Gesamt</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

@@ -42,12 +42,12 @@
     <string name="text_error">فشلت المعاملة التي تم تصديرها ☹</string>
     <string name="text_open">يفتح</string>
     <string name="text_about_visit_title">يزور</string>
-    <string name="text_app_version">V ٪ S (٪ D)</string>
+    <string name="text_app_version">v%s (%d)</string>
     <string name="text_share_as_text">شارك كنص</string>
     <string name="text_share_as_image">شارك كصورة</string>
     <string name="text_delete">يمسح</string>
     <string name="text_share">يشارك</string>
-    <string name="share_message">\ ٪ s \ namount: ٪ s ، \ ntransaction-type: ٪ s ، \ ntag: ٪ s ، \ ndate: ٪ s ، \ nnote: ٪ s ، \ ncreatedat: ٪ s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">لا توجد معاملة بعد!</string>
     <string name="text_transaction_empty_desc">بعد المعاملة الأولى ، ستتمكن من مشاهدتها هنا</string>
     <string name="text_add_transaction">أضف المعاملة</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">يجب عليك تمكين إذن التخزين لمشاركة المعاملة كصورة</string>
     <string name="overall">إجمالي</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

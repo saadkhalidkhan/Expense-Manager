@@ -42,12 +42,12 @@
     <string name="text_error">トランザクションエクスポートに失敗しました☹️</string>
     <string name="text_open">開ける</string>
     <string name="text_about_visit_title">訪問</string>
-    <string name="text_app_version">v％s（％d）</string>
+    <string name="text_app_version">v%s (%d)</string>
     <string name="text_share_as_text">テキストとして共有します</string>
     <string name="text_share_as_image">画像として共有します</string>
     <string name="text_delete">消去</string>
     <string name="text_share">共有</string>
-    <string name="share_message">\％s \ namount：％s、\ ntransaction-type：％s、\ ntag：％s、\ ndate：％s、\ nnote：％s、\ ncreatedat：％s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">まだトランザクションはありません！</string>
     <string name="text_transaction_empty_desc">あなたの最初のトランザクションの後、あなたはそれをここで見ることができます</string>
     <string name="text_add_transaction">トランザクションを追加します</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">ストレージ許可が画像としてトランザクションを共有できるようにする必要があります</string>
     <string name="overall">全体</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

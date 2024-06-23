@@ -42,12 +42,12 @@
     <string name="text_error">交易导出失败☹️</string>
     <string name="text_open">打开</string>
     <string name="text_about_visit_title">访问</string>
-    <string name="text_app_version">v％s（％d）</string>
+    <string name="text_app_version">v%s (%d)</string>
     <string name="text_share_as_text">作为文字共享</string>
     <string name="text_share_as_image">作为图像共享</string>
     <string name="text_delete">删除</string>
     <string name="text_share">分享</string>
-    <string name="share_message">\％s \ namount：％s，\ ntransaction-type：％s，\ ntag：％s，\ ndate：％s，\ nnote：％s，\ ncreateDat：％s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">还没有交易！</string>
     <string name="text_transaction_empty_desc">第一次交易后，您可以在这里查看</string>
     <string name="text_add_transaction">添加交易</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">您必须启用存储许可才能将交易作为图像共享</string>
     <string name="overall">全面的</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

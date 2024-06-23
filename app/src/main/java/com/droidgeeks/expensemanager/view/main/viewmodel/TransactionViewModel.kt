@@ -66,7 +66,7 @@ class TransactionViewModel @Inject constructor(
         _exportCsvState.value = ExportState.Loading
         transactionRepo
             .getAllTransactions()
-            .flowOn(Dispatchers.IO)
+            .flowOn(IO)
             .map { it.toCsv() }
             .flatMapMerge { exportService.writeToCSV(csvFileUri, it) }
             .catch { error ->

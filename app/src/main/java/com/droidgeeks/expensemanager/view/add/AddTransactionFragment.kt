@@ -12,7 +12,6 @@ import com.droidgeeks.expensemanager.data.local.model.Transaction
 import com.droidgeeks.expensemanager.data.local.model.TransactionListModel
 import com.droidgeeks.expensemanager.databinding.FragmentAddTransactionBinding
 import com.droidgeeks.expensemanager.utils.Constants.transactionTags
-import com.droidgeeks.expensemanager.utils.parseDouble
 import com.droidgeeks.expensemanager.utils.parseInt
 import com.droidgeeks.expensemanager.utils.snack
 import com.droidgeeks.expensemanager.utils.transformIntoDatePicker

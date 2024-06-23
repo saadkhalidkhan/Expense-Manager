@@ -42,12 +42,12 @@
     <string name="text_error">Transacción exportada fallida ☹️</string>
     <string name="text_open">Abierto</string>
     <string name="text_about_visit_title">Visita</string>
-    <string name="text_app_version">V%S (%D)</string>
+    <string name="text_app_version">v%s (%d)</string>
     <string name="text_share_as_text">Compartir como texto</string>
     <string name="text_share_as_image">Compartir como imagen</string>
     <string name="text_delete">Borrar</string>
     <string name="text_share">Compartir</string>
-    <string name="share_message">\ %s \ namount: %s, \ ntransaction-type: %s, \ ntag: %s, \ ndate: %s, \ nnote: %s, \ nCreateDat: %s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">¡No hay transacción todavía!</string>
     <string name="text_transaction_empty_desc">Después de su primera transacción, podrá verla aquí</string>
     <string name="text_add_transaction">Agregar transacción</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">Debe habilitar el permiso de almacenamiento para compartir la transacción como imagen</string>
     <string name="overall">En general</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

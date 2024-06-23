@@ -47,7 +47,7 @@
     <string name="text_share_as_image">Dela som bild</string>
     <string name="text_delete">Radera</string>
     <string name="text_share">Dela med sig</string>
-    <string name="share_message">\ %s \ namount: %s, \ ntransaction-typ: %s, \ ntag: %s, \ ndate: %s, \ nnote: %s, \ ncreatedat: %s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">Ingen transaktion ännu!</string>
     <string name="text_transaction_empty_desc">Efter din första transaktion kan du se den här</string>
     <string name="text_add_transaction">Lägg till transaktion</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">Du måste aktivera lagringstillstånd för att dela transaktion som bild</string>
     <string name="overall">Övergripande</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

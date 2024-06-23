@@ -47,7 +47,7 @@
     <string name="text_share_as_image">Compartilhe como imagem</string>
     <string name="text_delete">Excluir</string>
     <string name="text_share">Compartilhar</string>
-    <string name="share_message">\ %s \ namount: %s, \ \ NTransaction-type: %s, \ ntag: %s, \ ndate: %s, \ nnote: %s, \ nCreateTat: %s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">Sem transação ainda!</string>
     <string name="text_transaction_empty_desc">Após sua primeira transação, você poderá vê -lo aqui</string>
     <string name="text_add_transaction">Adicione a transação</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">Você precisa ativar a permissão de armazenamento para compartilhar a transação como imagem</string>
     <string name="overall">Geral</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>

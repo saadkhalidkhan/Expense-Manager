@@ -42,12 +42,12 @@
     <string name="text_error">ٹرانزیکشن برآمد ہوا</string>
     <string name="text_open">کھلا</string>
     <string name="text_about_visit_title">ملاحظہ کریں</string>
-    <string name="text_app_version">v ٪ s (٪ d)</string>
+    <string name="text_app_version">v%s (%d)</string>
     <string name="text_share_as_text">متن کے بطور شیئر کریں</string>
     <string name="text_share_as_image">تصویر کے طور پر شیئر کریں</string>
     <string name="text_delete">حذف کریں</string>
     <string name="text_share">بانٹیں</string>
-    <string name="share_message">\ ٪ s \ namount: ٪ s ، \ ntransaction-type: ٪ s ، \ n ٹیگ: ٪ s ، \ ndate: ٪ s ، \ n نوٹ: ٪ s ، \ n createdat: ٪ s</string>
+    <string name="share_message">\%s \nAmount: %s, \nTransaction-Type: %s, \nTag: %s, \nDate: %s, \nNote: %s, \nCreatedAt: %s </string>
     <string name="text_transaction_empty_title">ابھی تک کوئی لین دین نہیں!</string>
     <string name="text_transaction_empty_desc">آپ کے پہلے لین دین کے بعد آپ اسے یہاں دیکھ سکیں گے</string>
     <string name="text_add_transaction">لین دین شامل کریں</string>
@@ -65,11 +65,4 @@
     <string name="you_have_to_enable_storage_permission_to_share_transaction_as_image">آپ کو بطور تصویر لین دین کا اشتراک کرنے کے لئے اسٹوریج کی اجازت کو قابل بنانا ہوگا</string>
     <string name="overall">مجموعی طور پر</string>
 
-    <!--Ad mob Ads Id Setup-->
-    <string name="app_id">ca-app-pub-2874087806277205~9651464709</string>
-    <string name="expense_banner">ca-app-pub-2874087806277205/6909751293</string>
-
-    <!--    admob testing ID's     -->
-    <!--    <string name="expense_banner">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
 </resources>
