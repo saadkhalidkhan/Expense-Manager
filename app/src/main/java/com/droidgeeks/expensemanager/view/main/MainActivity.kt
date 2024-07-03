@@ -16,6 +16,8 @@ import com.droidgeeks.expensemanager.repo.TransactionRepo
 import com.droidgeeks.expensemanager.utils.Constants.sharing
 import com.droidgeeks.expensemanager.view.main.listener.IToolBar
 import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.google.firebase.FirebaseApp
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
@@ -117,6 +119,11 @@ class MainActivity : AppCompatActivity(), IToolBar {
     }
 
     private fun initViews(binding: ActivityMainBinding) {
+
+        /*banner ad*/
+        val mAdView = binding.adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragmentContainer) as NavHostFragment
