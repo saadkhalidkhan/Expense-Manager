@@ -9,14 +9,14 @@ plugins {
 }
 
 android {
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.droidgeeks.expensemanager"
-        minSdk = 21
-        targetSdk = 34
-        versionCode = 8
-        versionName = "1.8"
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
