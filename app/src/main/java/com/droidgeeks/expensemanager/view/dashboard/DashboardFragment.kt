@@ -12,7 +12,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -38,6 +40,7 @@ import com.droidgeeks.expensemanager.view.main.viewmodel.TransactionViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.abs
 
@@ -183,26 +186,28 @@ class DashboardFragment :
         totalBalanceView.totalBalance.text = usdCurrencyConvertor(income - expense)
     }
 
-    private fun observeTransaction() = lifecycleScope.launchWhenStarted {
-        viewModel.uiState.collect { uiState ->
-            when (uiState) {
-                is ViewState.Loading -> {
-                }
+    private fun observeTransaction() = lifecycleScope.launch {
+        repeatOnLifecycle(Lifecycle.State.STARTED) {
+            viewModel.uiState.collect { uiState ->
+                when (uiState) {
+                    is ViewState.Loading -> {
+                    }
 
-                is ViewState.Success -> {
-                    showAllViews()
-                    onTransactionLoaded(uiState.transaction)
-                    onTotalTransactionLoaded(uiState.transaction)
-                }
+                    is ViewState.Success -> {
+                        showAllViews()
+                        onTransactionLoaded(uiState.transaction)
+                        onTotalTransactionLoaded(uiState.transaction)
+                    }
 
-                is ViewState.Error -> {
-                    binding.root.snack(
-                        string = R.string.text_error
-                    )
-                }
+                    is ViewState.Error -> {
+                        binding.root.snack(
+                            string = R.string.text_error
+                        )
+                    }
 
-                is ViewState.Empty -> {
-                    hideAllViews()
+                    is ViewState.Empty -> {
+                        hideAllViews()
+                    }
                 }
             }
         }

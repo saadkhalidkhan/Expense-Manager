@@ -5,7 +5,9 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,6 +23,7 @@ import com.google.android.gms.ads.AdView
 import com.google.firebase.FirebaseApp
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,9 +33,6 @@ class MainActivity : AppCompatActivity(), IToolBar {
 
     @Inject
     lateinit var repo: TransactionRepo
-
-//    @Inject
-//    lateinit var exportCsvService: ExportCsvService
 
     @Inject
     lateinit var themeManager: UIModeImpl
@@ -58,13 +58,15 @@ class MainActivity : AppCompatActivity(), IToolBar {
     }
 
     private fun observeThemeMode() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.getUIMode.collect {
-                val mode = when (it) {
-                    true -> AppCompatDelegate.MODE_NIGHT_YES
-                    false -> AppCompatDelegate.MODE_NIGHT_NO
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.getUIMode.collect {
+                    val mode = when (it) {
+                        true -> AppCompatDelegate.MODE_NIGHT_YES
+                        false -> AppCompatDelegate.MODE_NIGHT_NO
+                    }
+                    AppCompatDelegate.setDefaultNightMode(mode)
                 }
-                AppCompatDelegate.setDefaultNightMode(mode)
             }
         }
         viewModel.visibleBackPress.observe(this) { visible ->
@@ -137,9 +139,11 @@ class MainActivity : AppCompatActivity(), IToolBar {
     }
 
     override fun onClickUIMode() {
-        lifecycleScope.launchWhenStarted {
-            val isChecked = !viewModel.getUIMode.first()
-            setUIMode(isChecked)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                val isChecked = !viewModel.getUIMode.first()
+                setUIMode(isChecked)
+            }
         }
     }
 
