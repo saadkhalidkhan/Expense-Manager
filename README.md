@@ -11,7 +11,7 @@
 
 A lightweight **personal finance** Android app to track income and expenses, view balances on a dashboard, export data to CSV, and switch between light and dark themes.
 
-[**Download on Google Play**](https://play.google.com/store/apps/details?id=com.droidgeeks.expensemanager) · [**Report a bug**](https://github.com/saadkhalidkhan/Expense-Manager/issues) · [**Contributing**](CONTRIBUTING.md)
+[**Report a bug**](https://github.com/saadkhalidkhan/Expense-Manager/issues) · [**Contributing**](CONTRIBUTING.md)
 
 ---
 
@@ -178,4 +178,4 @@ Copyright 2026 Saad Khan
 
 **Saad Khan** — [GitHub](https://github.com/saadkhalidkhan) · [ranasaad0799@gmail.com](mailto:ranasaad0799@gmail.com)
 
-If this project helps you, consider starring the repo or leaving a review on [Google Play](https://play.google.com/store/apps/details?id=com.droidgeeks.expensemanager).
+If this project helps you, consider starring the repo.
