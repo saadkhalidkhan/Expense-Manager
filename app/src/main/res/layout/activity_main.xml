@@ -20,13 +20,23 @@
             android:background="@color/surface"
             tools:context="com.droidgeeks.expensemanager.view.main.MainActivity">
 
+        <View
+                android:id="@+id/status_bar_inset"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/surface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_top"
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
+                android:background="@color/surface"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/status_bar_inset">
 
             <ImageView
                     android:id="@+id/imageBackPress"

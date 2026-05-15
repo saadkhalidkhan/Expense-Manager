@@ -1,7 +1,7 @@
 # Expenzilla — Expense Manager
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.8.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.20-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![Android](https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
 [![Version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/saadkhalidkhan/Expense-Manager/releases)
 [![minSdk](https://img.shields.io/badge/minSdk-26-lightgrey)](app/build.gradle.kts)
@@ -17,20 +17,13 @@ A lightweight **personal finance** Android app to track income and expenses, vie
 
 ## Preview
 
-Add these files under [`docs/images/`](docs/images/) (see [guide](docs/images/README.md)), then uncomment the block below in this README:
-
-- `dashboard.png` — main dashboard
-- `add_transaction.png` — add / edit screen
-- `transaction_details.png` — detail view
-- `demo.gif` — short app walkthrough (optional)
-
-<!--
 | Dashboard | Add transaction | Transaction details |
 | :---: | :---: | :---: |
-| ![Dashboard](docs/images/dashboard.png) | ![Add transaction](docs/images/add_transaction.png) | ![Details](docs/images/transaction_details.png) |
+| ![Dashboard](docs/images/dashboard.png) | ![Add transaction](docs/images/add_transaction.png) | ![Transaction details](docs/images/transaction_details.png) |
 
-![App demo](docs/images/demo.gif)
--->
+### App demo
+
+<video src="docs/images/demo.webm" controls width="320"></video>
 
 ---
 

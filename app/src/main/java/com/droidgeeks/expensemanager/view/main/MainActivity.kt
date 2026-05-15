@@ -5,6 +5,10 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -45,6 +49,7 @@ class MainActivity : AppCompatActivity(), IToolBar {
         FirebaseApp.initializeApp(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        applySystemBarInsets()
 
         /**
          * Just so the viewModel doesn't get removed by the compiler, as it isn't used
@@ -118,6 +123,27 @@ class MainActivity : AppCompatActivity(), IToolBar {
         binding.imageShare.visibility = imageShare
         binding.imageBackPress.visibility = imageBackPress
         binding.imageUIMode.visibility = uiMode
+    }
+
+    private fun applySystemBarInsets() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
+            val statusBars = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val navigationBars = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+
+            binding.statusBarInset.layoutParams =
+                binding.statusBarInset.layoutParams.apply {
+                    height = statusBars.top
+                }
+
+            (binding.adView.layoutParams as ConstraintLayout.LayoutParams).apply {
+                bottomMargin = navigationBars.bottom
+            }.also { binding.adView.layoutParams = it }
+
+            windowInsets
+        }
+        ViewCompat.requestApplyInsets(binding.root)
     }
 
     private fun initViews(binding: ActivityMainBinding) {
